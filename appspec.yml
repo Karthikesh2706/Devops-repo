@@ -1,10 +1,11 @@
 version: 0.0
 os: linux
 files:
-  - source: index.html
-    destination: /home/ubuntu
+  - source: /
+    destination: /var/www/html
+
 hooks:
   AfterInstall:
-    - location: deploy-scripts/install.sh
-      timeout: 60
-      runas: ubuntu
+    - location: scripts/restart_server.sh
+      timeout: 30
+      runas: root
